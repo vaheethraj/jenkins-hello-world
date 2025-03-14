@@ -19,6 +19,13 @@ pipeline {
             }
         }
 
+	stage('Archive') { 
+            steps{ 
+                archiveArtifacts artifacts: 'target/hello-demo-*.jar', followSymlinks: false
+	    }
+
+	}
+
 	stage('Test'){
            steps{ 
                sh 'mvn test'
